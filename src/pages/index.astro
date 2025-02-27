@@ -6,8 +6,8 @@ const blogPosts = await getCollection("blog");
 ---
 
 <Layout>
-  <h1>THIS IS THE HOMEPAGE FOR EVERYTHING!</h1>
-  <section class="blog-entries">
+  <section class="ml-4 mr-4">
+    <h1>THIS IS THE HOMEPAGE FOR EVERYTHING!</h1>
     {
       blogPosts.map((post) => {
         return (

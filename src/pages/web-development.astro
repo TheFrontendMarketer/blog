@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/default.astro";
+import Layout from "../layouts/page.astro";
 import { getCollection } from "astro:content";
 
 const blogPosts = (await getCollection("blog")).filter(
