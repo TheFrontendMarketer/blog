@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #1C1C1C;
+  }
+
+.siteContainer {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0;
+    align-items: center;
+}
+

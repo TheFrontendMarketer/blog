@@ -2,6 +2,6 @@
 layout: ../layouts/default.astro
 ---
 
-# About Me
+# **About Me**
 
 This is the about page!
