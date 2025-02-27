@@ -6,11 +6,19 @@ const blogPosts = await getCollection("blog");
 ---
 
 <Layout>
+  <h1>THIS IS THE HOMEPAGE FOR EVERYTHING!</h1>
   <section class="blog-entries">
     {
       blogPosts.map((post) => {
         return (
           <div class="post">
+            <p>
+              <a
+                href={`/${post.data.category.toLowerCase().replace(/\s+/g, "-")}/`}
+              >
+                {post.data.category}
+              </a>
+            </p>
             <h2>
               <a href={`/${post.slug}`}>{post.data.title}</a>
             </h2>

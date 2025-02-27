@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/default.astro";
+import { getCollection } from "astro:content";
+
+const blogPosts = (await getCollection("blog")).filter(
+  (post) => post.data.category === "Web Development"
+);
+---
+
+<Layout>
+  <h1>THIS IS THE WEB DEVELOPMENT PAGE!</h1>
+  <section class="blog-entries">
+    {
+      blogPosts.map((post) => {
+        return (
+          <div class="post">
+            <h2>
+              <a href={`/${post.slug}`}>{post.data.title}</a>
+            </h2>
+            <time datetime={post.data.date.toISOString()}>
+              {post.data.date.toDateString()}
+            </time>
+            <p>{post.data.description}</p>
+            <a href={`/${post.slug}`} class="big-link">
+              read post
+            </a>
+          </div>
+        );
+      })
+    }
+  </section>
+</Layout>
