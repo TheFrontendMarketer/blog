@@ -8,6 +8,7 @@ export const collections = {
 			description: z.string().max(200),
             category: z.string(),
             tags: z.string(),
+            image: z.string(),
 		}),
 	}),
 };
