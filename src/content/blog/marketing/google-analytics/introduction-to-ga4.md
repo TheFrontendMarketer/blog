@@ -1,7 +1,7 @@
 ---
 title: Introduction to GA4
 slug: introducing-to-ga4
-date: 2024-02-26
+date: 2025-02-20
 description: >
   This is the description section for Introduction to GA4 blog.
 category: "Marketing"

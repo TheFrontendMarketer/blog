@@ -2,44 +2,109 @@
 import Layout from "../layouts/default.astro";
 import { getCollection } from "astro:content";
 import { CldImage } from "astro-cloudinary";
+import Search from "../components/Search.astro";
 
-const blogPosts = await getCollection("blog");
+const blogPosts = (await getCollection("blog")).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+const categories = ["Marketing", "Web Development"];
+const topics = [
+  "Google Analytics",
+  "Google Tag Manager",
+  "Python",
+  "HTML",
+  "CSS",
+  "JavaScript",
+];
 ---
 
 <Layout>
-  <section class="ml-4 mr-4">
-    {
-      blogPosts.map((post) => {
-        return (
-          <div class="post">
-            {post.data.image && (
-              <CldImage
-                src="cld-sample-5"
-                width="600"
-                height="400"
-                alt={post.data.title}
-              />
-            )}
-            <p>
+  <section class="ml-4 mr-4 lg:flex gap-26 justify-center leading-6 font-light">
+    <div>
+      {
+        blogPosts.map((post) => {
+          return (
+            <div class="post max-w-[700px] pt-4 pb-4 border-b border-gray-300">
+              {post.data.image && (
+                <a
+                  href={`/${post.slug}`}
+                  aria-label={`Read ${post.data.title}`}
+                >
+                  <CldImage
+                    class="w-full"
+                    src={post.data.image}
+                    width={700}
+                    height={350}
+                    alt={post.data.title}
+                  />
+                </a>
+              )}
+              <p class="mt-4">
+                <a
+                  class="text-[#808080] text-sm"
+                  href={`/${post.data.category.toLowerCase().replace(/\s+/g, "-")}/`}
+                >
+                  {post.data.category}
+                </a>
+              </p>
+              <h2>
+                <a
+                  class="text-[#1C1C1C] font-bold hover:underline hover:text-[#0093ff]"
+                  href={`/${post.slug}`}
+                >
+                  {post.data.title}
+                </a>
+              </h2>
+
+              <p>{post.data.description}</p>
+              <a href={`/${post.slug}`} class="big-link" />
+
+              <time class="text-xs" datetime={post.data.date.toISOString()}>
+                {new Date(post.data.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                  timeZone: "UTC",
+                })}
+              </time>
+            </div>
+          );
+        })
+      }
+    </div>
+    <!-- Sidebar Section -->
+    <aside class="lg:w-1/4 bg-gray-100 p-6 rounded-lg shadow-md">
+      <Search />
+      <h3 class="text-lg font-semibold border-b pb-2 mb-4">Categories</h3>
+      <ul class="space-y-2">
+        {
+          categories.map((category) => (
+            <li>
               <a
-                href={`/${post.data.category.toLowerCase().replace(/\s+/g, "-")}/`}
+                href={`/${category.toLowerCase().replace(/\s+/g, "-")}/`}
+                class="text-[#1C1C1C] hover:underline hover:text-[#0093ff]"
               >
-                {post.data.category}
+                {category}
               </a>
-            </p>
-            <h2>
-              <a href={`/${post.slug}`}>{post.data.title}</a>
-            </h2>
-            <time datetime={post.data.date.toISOString()}>
-              {post.data.date.toDateString()}
-            </time>
-            <p>{post.data.description}</p>
-            <a href={`/${post.slug}`} class="big-link">
-              read post
-            </a>
-          </div>
-        );
-      })
-    }
+            </li>
+          ))
+        }
+      </ul>
+      <h3 class="text-lg font-semibold border-b pb-2 mb-4">Topics</h3>
+      <ul class="space-y-2">
+        {
+          topics.map((category) => (
+            <li>
+              <a
+                href={`/${category.toLowerCase().replace(/\s+/g, "-")}/`}
+                class="text-[#1C1C1C] hover:underline hover:text-[#0093ff]"
+              >
+                {category}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </aside>
   </section>
 </Layout>
