@@ -3,13 +3,13 @@ import Layout from "../layouts/default.astro";
 import { getCollection } from "astro:content";
 import { CldImage } from "astro-cloudinary";
 import Sidebar from "../components/Sidebar.astro";
-import { ARTICLES_PER_PAGE } from "../constants";
+import { HOMEPAGE_ARTICLE_LIMIT } from "../constants";
 
 const blogPosts = (await getCollection("blog"))
   .sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
   )
-  .slice(0, ARTICLES_PER_PAGE); // Limit the number of articles
+  .slice(0, HOMEPAGE_ARTICLE_LIMIT); // Limit the number of articles
 ---
 
 <Layout>

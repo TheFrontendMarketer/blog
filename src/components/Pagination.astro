@@ -1,11 +1,11 @@
 ---
 const { params } = Astro;
 const currentPage = Number(params.page) || 1;
-const totalPages = 10;
+const totalPages = 3;
 
 function generatePageNumbers(currentPage: number, totalPages: number) {
   let pages = [];
-  if (totalPages <= 5) {
+  if (totalPages <= 4) {
     pages = Array.from({ length: totalPages }, (_, i) => i + 1);
   } else {
     if (currentPage <= 3) {
@@ -41,7 +41,7 @@ const pageNumbers = generatePageNumbers(currentPage, totalPages);
     {
       currentPage > 1 && (
         <a
-          href={`/articles/${currentPage - 1}`}
+          href={currentPage === 2 ? "/" : `/articles/${currentPage - 1}`}
           class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20"
         >
           <span class="sr-only">Previous</span>
@@ -70,7 +70,7 @@ const pageNumbers = generatePageNumbers(currentPage, totalPages);
           </span>
         ) : (
           <a
-            href={`/articles/${page}`}
+            href={page === 1 ? "/" : `/articles/${page}`}
             class={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${
               page === currentPage
                 ? "bg-indigo-600 text-white focus:bg-indigo-700"
