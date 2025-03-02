@@ -6,34 +6,34 @@ import Sidebar from "../../components/Sidebar.astro";
 import { ARTICLES_PER_PAGE } from "../../constants";
 
 export async function getStaticPaths() {
-  const allPosts = (await getCollection("blog")).sort(
+  const blogPosts = (await getCollection("blog")).sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
   );
 
-  const totalPages = Math.ceil(allPosts.length / ARTICLES_PER_PAGE);
+  const totalPages = Math.ceil(blogPosts.length / ARTICLES_PER_PAGE);
 
   return Array.from({ length: totalPages }, (_, i) => ({
     params: { page: String(i + 1) },
-    props: { allPosts }, // Pass articles to the page
+    props: { blogPosts }, // Pass articles to the page
   }));
 }
 
 const { params, props } = Astro;
 const currentPage = Number(params.page) || 1;
-const allPosts = props.allPosts;
-const totalPages = Math.ceil(allPosts.length / ARTICLES_PER_PAGE);
+const allPosts = props.blogPosts;
+// const totalPages = Math.ceil(allPosts.length / ARTICLES_PER_PAGE);
 
 // Get articles for the current page
 const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
 const endIndex = startIndex + ARTICLES_PER_PAGE;
-const blogPosts = allPosts.slice(startIndex, endIndex);
+const articlePosts = allPosts.slice(startIndex, endIndex);
 ---
 
 <Layout>
   <div class="ml-4 mr-4 md:flex gap-12 justify-center leading-6 font-light">
     <div>
       {
-        blogPosts.map((post) => {
+        articlePosts.map((post) => {
           return (
             <div class="post max-w-[700px] pt-4 pb-4 border-b border-gray-300">
               {post.data.image && (

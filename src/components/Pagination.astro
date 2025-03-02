@@ -1,54 +1,48 @@
 ---
-import { getCollection } from "astro:content";
-import { ARTICLES_PER_PAGE } from "../constants";
+const { params } = Astro;
+const currentPage = Number(params.page) || 1;
+const totalPages = 10;
 
-export async function getStaticPaths() {
-  const allPosts = (await getCollection("blog")).sort(
-    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-  );
-
-  const totalPages = Math.ceil(allPosts.length / ARTICLES_PER_PAGE);
-
-  return Array.from({ length: totalPages }, (_, i) => ({
-    params: { page: String(i + 1) },
-    props: { allPosts }, // Pass articles to the page
-  }));
+function generatePageNumbers(currentPage: number, totalPages: number) {
+  let pages = [];
+  if (totalPages <= 5) {
+    pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  } else {
+    if (currentPage <= 3) {
+      pages = [1, 2, 3, "...", totalPages];
+    } else if (currentPage >= totalPages - 2) {
+      pages = [1, "...", totalPages - 2, totalPages - 1, totalPages];
+    } else {
+      pages = [
+        1,
+        "...",
+        currentPage - 1,
+        currentPage,
+        currentPage + 1,
+        "...",
+        totalPages,
+      ];
+    }
+  }
+  return pages;
 }
 
-const { params, props } = Astro;
-const currentPage = Number(params.page) || 1;
-const allPosts = props.allPosts;
-
-// Get articles for the current page
-const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
-const endIndex = startIndex + ARTICLES_PER_PAGE;
+const pageNumbers = generatePageNumbers(currentPage, totalPages);
 ---
 
 <div
   class="flex items-center justify-center border-t border-gray-200 bg-white px-4 py-3 sm:px-6"
 >
-  <div class="flex flex-1 justify-between sm:hidden">
-    <a
-      href=""
-      class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-      >Previous</a
-    >
-    <a
-      href=""
-      class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-      >Next</a
-    >
-  </div>
-
   <nav
     class="isolate inline-flex -space-x-px rounded-md shadow-xs"
     aria-label="Pagination"
   >
+    <!-- Previous Button -->
     {
       currentPage > 1 && (
         <a
           href={`/articles/${currentPage - 1}`}
-          class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+          class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20"
         >
           <span class="sr-only">Previous</span>
           <svg
@@ -56,7 +50,6 @@ const endIndex = startIndex + ARTICLES_PER_PAGE;
             viewBox="0 0 20 20"
             fill="currentColor"
             aria-hidden="true"
-            data-slot="icon"
           >
             <path
               fill-rule="evenodd"
@@ -67,41 +60,52 @@ const endIndex = startIndex + ARTICLES_PER_PAGE;
         </a>
       )
     }
-    <!-- Current: "z-10 bg-indigo-600 text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" -->
-    <a
-      href="/"
-      aria-current="page"
-      class="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-      >1</a
-    >
-    <a
-      href="#"
-      class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-      >2</a
-    >
-    <a
-      href="#"
-      class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
-      >3</a
-    >
 
-    <a
-      href={`/articles/${currentPage + 1}`}
-      class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-    >
-      <span class="sr-only">Next</span>
-      <svg
-        class="size-5"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        aria-hidden="true"
-        data-slot="icon"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
-          clip-rule="evenodd"></path>
-      </svg>
-    </a>
+    <!-- Page Numbers -->
+    {
+      pageNumbers.map((page) =>
+        page === "..." ? (
+          <span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-gray-300 ring-inset">
+            ...
+          </span>
+        ) : (
+          <a
+            href={`/articles/${page}`}
+            class={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${
+              page === currentPage
+                ? "bg-indigo-600 text-white focus:bg-indigo-700"
+                : "text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:bg-gray-200"
+            }`}
+            aria-current={page === currentPage ? "page" : undefined}
+          >
+            {page}
+          </a>
+        )
+      )
+    }
+
+    <!-- Next Button -->
+    {
+      currentPage < totalPages && (
+        <a
+          href={`/articles/${currentPage + 1}`}
+          class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus:z-20"
+        >
+          <span class="sr-only">Next</span>
+          <svg
+            class="size-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </a>
+      )
+    }
   </nav>
 </div>
