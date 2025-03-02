@@ -1,15 +1,32 @@
 ---
-import Layout from "../layouts/default.astro";
+import Layout from "../../layouts/default.astro";
 import { getCollection } from "astro:content";
 import { CldImage } from "astro-cloudinary";
-import Sidebar from "../components/Sidebar.astro";
-import { ARTICLES_PER_PAGE } from "../constants";
+import Sidebar from "../../components/Sidebar.astro";
+import { ARTICLES_PER_PAGE } from "../../constants";
 
-const blogPosts = (await getCollection("blog"))
-  .sort(
+export async function getStaticPaths() {
+  const allPosts = (await getCollection("blog")).sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-  )
-  .slice(0, ARTICLES_PER_PAGE); // Limit the number of articles
+  );
+
+  const totalPages = Math.ceil(allPosts.length / ARTICLES_PER_PAGE);
+
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: String(i + 1) },
+    props: { allPosts }, // Pass articles to the page
+  }));
+}
+
+const { params, props } = Astro;
+const currentPage = Number(params.page) || 1;
+const allPosts = props.allPosts;
+const totalPages = Math.ceil(allPosts.length / ARTICLES_PER_PAGE);
+
+// Get articles for the current page
+const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
+const endIndex = startIndex + ARTICLES_PER_PAGE;
+const blogPosts = allPosts.slice(startIndex, endIndex);
 ---
 
 <Layout>
