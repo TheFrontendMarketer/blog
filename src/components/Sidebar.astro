@@ -4,20 +4,25 @@ import { getCollection } from "astro:content";
 const blogPosts = (await getCollection("blog")).sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
-const categories = ["Marketing", "Web Development"];
-const topics = [
+const categories = [
   "Google Analytics",
   "Google Tag Manager",
-  "Python",
+  "Social Media",
   "HTML",
   "CSS",
   "JavaScript",
+  "Python",
+  "Frameworks",
 ];
+const topics = ["Marketing", "Web Development"];
 ---
 
-<aside class="md:block hidden lg:w-1/4 bg-gray-100 p-6 rounded-lg shadow-md">
+<aside
+  id="sidebar"
+  class="md:block hidden lg:w-1/5 bg-gray-100 p-6 mt-4 rounded-lg shadow-md w-[300px] h-fit self-start"
+>
   <!-- Search Bar -->
-  <form id="search-form" class="flex items-center" action="/articles/search">
+  <!-- <form id="search-form" class="flex items-center" action="/articles/search">
     <label for="search-input" class="sr-only">Search</label>
     <div class="relative w-full">
       <input
@@ -29,7 +34,7 @@ const topics = [
         required
       />
     </div>
-  </form>
+  </form> -->
   <!-- Categories and Topics -->
   <h3 class="text-lg font-semibold border-b pb-2 mb-4">Categories</h3>
   <ul class="space-y-2">
@@ -46,7 +51,7 @@ const topics = [
       ))
     }
   </ul>
-  <h3 class="text-lg font-semibold border-b pb-2 mb-4">Topics</h3>
+  <!-- <h3 class="text-lg font-semibold border-b pb-2 mb-4">Topics</h3>
   <ul class="space-y-2">
     {
       topics.map((category) => (
@@ -60,5 +65,5 @@ const topics = [
         </li>
       ))
     }
-  </ul>
+  </ul> -->
 </aside>

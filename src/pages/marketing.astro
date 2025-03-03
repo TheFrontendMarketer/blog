@@ -1,17 +1,19 @@
 ---
-import Layout from "../layouts/default.astro";
+import Layout from "../layouts/page.astro";
 import { getCollection } from "astro:content";
 import { CldImage } from "astro-cloudinary";
 import Sidebar from "../components/Sidebar.astro";
 
 const blogPosts = (await getCollection("blog")).filter(
-  (post) => post.data.category === "Marketing"
+  (post) => post.data.tags === "Marketing"
 );
 ---
 
 <Layout>
-  <h1>THIS IS THE MARKETING PAGE</h1>
-  <div class="ml-4 mr-4 md:flex gap-12 justify-center leading-6 font-light">
+  <h1 class="text-4xl pt-4 pb-4">Marketing</h1>
+  <div
+    class="ml-4 mr-4 md:flex gap-12 justify-center leading-6 font-light mt-8 pb-18"
+  >
     <div>
       {
         blogPosts.map((post) => {

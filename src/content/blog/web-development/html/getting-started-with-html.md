@@ -4,8 +4,8 @@ slug: getting-started-with-html
 date: 2025-03-01
 description: >
   This article will covert how you can get started with HTML. We'll cover the basics to help you get up and running in no time!
-category: "Web Development"
-tags: "HTML"
+category: "HTML"
+tags: "Web Development"
 image: "How_to_Get_Started_with_Astro_1_up6dh9"
 ---
 

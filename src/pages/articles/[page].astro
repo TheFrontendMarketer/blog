@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import { CldImage } from "astro-cloudinary";
 import Sidebar from "../../components/Sidebar.astro";
 import { ARTICLES_PER_PAGE } from "../../constants";
+import Pagination from "../../components/Pagination.astro";
 
 export async function getStaticPaths() {
   const blogPosts = (await getCollection("blog")).sort(
@@ -21,7 +22,7 @@ export async function getStaticPaths() {
 const { params, props } = Astro;
 const currentPage = Number(params.page) || 1;
 const allPosts = props.blogPosts;
-// const totalPages = Math.ceil(allPosts.length / ARTICLES_PER_PAGE);
+const totalPages = Math.ceil(allPosts.length / ARTICLES_PER_PAGE);
 
 // Get articles for the current page
 const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
@@ -86,4 +87,5 @@ const articlePosts = allPosts.slice(startIndex, endIndex);
     <!-- Sidebar Section -->
     <Sidebar />
   </div>
+  <Pagination currentPage={currentPage} totalPages={totalPages} />
 </Layout>

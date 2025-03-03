@@ -4,12 +4,17 @@ import { getCollection } from "astro:content";
 import { CldImage } from "astro-cloudinary";
 import Sidebar from "../components/Sidebar.astro";
 import { HOMEPAGE_ARTICLE_LIMIT } from "../constants";
+import { ARTICLES_PER_PAGE } from "../constants";
+import Pagination from "../components/Pagination.astro";
 
 const blogPosts = (await getCollection("blog"))
   .sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
   )
   .slice(0, HOMEPAGE_ARTICLE_LIMIT); // Limit the number of articles
+
+const currentPage: number | null = +Astro.url.searchParams.get("page")! || 1;
+const totalPages: number = Math.ceil(blogPosts.length / ARTICLES_PER_PAGE);
 ---
 
 <Layout>
@@ -67,6 +72,8 @@ const blogPosts = (await getCollection("blog"))
       }
     </div>
     <!-- Sidebar Section -->
+
     <Sidebar />
   </div>
+  <Pagination currentPage={currentPage} totalPages={totalPages} />
 </Layout>

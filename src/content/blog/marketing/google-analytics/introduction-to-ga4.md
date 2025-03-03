@@ -4,8 +4,8 @@ slug: introducing-to-ga4
 date: 2025-02-20
 description: >
   This is the description section for Introduction to GA4 blog.
-category: "Marketing"
-tags: "Google Analytics"
+category: "Google Analytics"
+tags: "Marketing"
 image: "cld-sample-5"
 ---
 
