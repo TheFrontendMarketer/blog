@@ -11,4 +11,8 @@ image: "How_to_Get_Started_with_Astro_1_up6dh9"
 
 ![GA4 Dashboard](https://res.cloudinary.com/dz8qxptav/image/upload/v1740708030/How_to_Get_Started_with_Astro_1_up6dh9.png)
 
-This is your sign to get started with HTML!
+# Getting Started with HTML
+
+Fri Feb 28 2025 | 3 min read
+
+This is your sign to get started with HTML! This is the actual blog content here.

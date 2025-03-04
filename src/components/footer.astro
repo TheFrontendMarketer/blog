@@ -1,3 +1,44 @@
+---
+const marItems = [
+  {
+    path: "/google-analytics",
+    label: "Marketing",
+  },
+  {
+    path: "/google-tag-manager",
+    label: "Google Tag Manager",
+  },
+  {
+    path: "/social-media",
+    label: "Social Media",
+  },
+];
+const webItems = [
+  {
+    path: "/html",
+    label: "HTML",
+  },
+  {
+    path: "/css",
+    label: "CSS",
+  },
+  {
+    path: "/frameworks",
+    label: "Frameworks",
+  },
+];
+const lanItems = [
+  {
+    path: "/javascript",
+    label: "JavaScript",
+  },
+  {
+    path: "/python",
+    label: "Python",
+  },
+];
+---
+
 <div class="bg-[#2b2b2b] text-white">
   <div class="siteContainer">
     <div
@@ -5,38 +46,63 @@
     >
       <div id="marketing-footer">
         <h2 class="text-l">Marketing</h2>
-        <ul class="text-xs">
-          <li>Google Analytics</li>
-          <li>Google Tag Manager</li>
-          <li>Social Media</li>
+        <ul class="text-xs pb-4">
+          {
+            marItems.map((item) => {
+              return (
+                <li class="pb-1.5">
+                  <a href={item.path}>{item.label}</a>
+                </li>
+              );
+            })
+          }
         </ul>
       </div>
       <div id="web-development-footer">
         <h2 class="text-l">Web Development</h2>
-        <ul class="text-xs">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>Frameworks</li>
+        <ul class="text-xs pb-4">
+          {
+            webItems.map((item) => {
+              return (
+                <li class="pb-1.5">
+                  <a href={item.path}>{item.label}</a>
+                </li>
+              );
+            })
+          }
         </ul>
       </div>
       <div id="languages-footer">
         <h2 class="text-l">Languages</h2>
-        <ul class="text-xs">
-          <li>JavaScript</li>
-          <li>Python</li>
+        <ul class="text-xs pb-4">
+          {
+            lanItems.map((item) => {
+              return (
+                <li class="pb-1.5">
+                  <a href={item.path}>{item.label}</a>
+                </li>
+              );
+            })
+          }
         </ul>
       </div>
       <div id="about">
         <h2 class="text-l">About</h2>
-        <ul class="text-xs">
-          <li>About</li>
+        <ul class="text-xs pb-4">
+          <li><a href="/about">About</a></li>
         </ul>
       </div>
       <div id="follow">
         <h2 class="text-l">Follow TFM</h2>
-        <ul class="text-xs">
-          <li>Bluesky</li>
-          <li>Instagram</li>
+        <ul class="text-xs pb-4">
+          <li class="pb-1.5">
+            <a href="https://bsky.app/profile/frontendmarketer.bsky.social"
+              >Bluesky</a>
+          </li>
+          <li class="pb-1.5">
+            <a href="https://www.instagram.com/thefrontendmarketer/"
+              >Instagram</a>
+          </li>
         </ul>
       </div>
     </div>

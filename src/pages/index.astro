@@ -4,21 +4,16 @@ import { getCollection } from "astro:content";
 import { CldImage } from "astro-cloudinary";
 import Sidebar from "../components/Sidebar.astro";
 import { HOMEPAGE_ARTICLE_LIMIT } from "../constants";
-import { ARTICLES_PER_PAGE } from "../constants";
-import Pagination from "../components/Pagination.astro";
 
 const blogPosts = (await getCollection("blog"))
   .sort(
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
   )
   .slice(0, HOMEPAGE_ARTICLE_LIMIT); // Limit the number of articles
-
-const currentPage: number | null = +Astro.url.searchParams.get("page")! || 1;
-const totalPages: number = Math.ceil(blogPosts.length / ARTICLES_PER_PAGE);
 ---
 
 <Layout>
-  <div class="ml-4 mr-4 md:flex gap-12 justify-center leading-6 font-light">
+  <section class="ml-4 mr-4 md:flex gap-12 justify-center leading-6 font-light">
     <div>
       {
         blogPosts.map((post) => {
@@ -40,7 +35,7 @@ const totalPages: number = Math.ceil(blogPosts.length / ARTICLES_PER_PAGE);
               )}
               <p class="mt-4">
                 <a
-                  class="text-[#808080] text-sm"
+                  class="text-[#F2404F] text-sm"
                   href={`/${post.data.category.toLowerCase().replace(/\s+/g, "-")}/`}
                 >
                   {post.data.category}
@@ -56,7 +51,6 @@ const totalPages: number = Math.ceil(blogPosts.length / ARTICLES_PER_PAGE);
               </h2>
 
               <p>{post.data.description}</p>
-              <a href={`/${post.slug}`} class="big-link" />
 
               <time class="text-xs" datetime={post.data.date.toISOString()}>
                 {new Date(post.data.date).toLocaleDateString("en-US", {
@@ -74,6 +68,5 @@ const totalPages: number = Math.ceil(blogPosts.length / ARTICLES_PER_PAGE);
     <!-- Sidebar Section -->
 
     <Sidebar />
-  </div>
-  <Pagination currentPage={currentPage} totalPages={totalPages} />
+  </section>
 </Layout>

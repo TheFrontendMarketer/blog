@@ -4,7 +4,7 @@ slug: how-to-get-started-with-astro
 date: 2025-02-26
 description: >
   A tutorial to get started with Astro. This is more of the description because I'm just trying to write to fill some space.
-category: "Astro"
+category: "Frameworks"
 tags: "Web Development"
 image: "How_to_Get_Started_with_Astro_1_up6dh9"
 ---
