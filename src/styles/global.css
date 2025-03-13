@@ -21,3 +21,14 @@ body {
     justify-content: space-between;
   }
 }
+
+/* About Me banner */
+.about-me-banner {
+  width: 100%;
+  height: 40vh;
+  background: hsla(267, 83%, 91%, 1);
+  background: linear-gradient(315deg, hsla(267, 83%, 91%, 1) 0%, hsla(22, 41%, 88%, 1) 100%);
+  background: -moz-linear-gradient(315deg, hsla(267, 83%, 91%, 1) 0%, hsla(22, 41%, 88%, 1) 100%);
+  background: -webkit-linear-gradient(315deg, hsla(267, 83%, 91%, 1) 0%, hsla(22, 41%, 88%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E6D5FB", endColorstr="#EDDDD4", GradientType=1 );
+}

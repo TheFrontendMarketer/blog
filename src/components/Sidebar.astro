@@ -10,9 +10,9 @@ const categories = [
   "Social Media",
   "HTML",
   "CSS",
+  "Frameworks",
   "JavaScript",
   "Python",
-  "Frameworks",
 ];
 const topics = ["Marketing", "Web Development"];
 ---
@@ -21,21 +21,7 @@ const topics = ["Marketing", "Web Development"];
   id="sidebar"
   class="md:block hidden lg:w-1/5 bg-gray-100 p-6 mt-4 rounded-lg shadow-md w-[300px] h-fit self-start"
 >
-  <!-- Search Bar -->
-  <!-- <form id="search-form" class="flex items-center" action="/articles/search">
-    <label for="search-input" class="sr-only">Search</label>
-    <div class="relative w-full">
-      <input
-        type="text"
-        id="query"
-        name="query"
-        class="bg-gray-50 border border-gray-300 text-[#1C1C1C] text-sm rounded-lg focus:ring-[#18CB95] focus:border-[#18CB95] block w-full p-2.5 outline-none"
-        placeholder="Search articles..."
-        required
-      />
-    </div>
-  </form> -->
-  <!-- Categories and Topics -->
+  <!-- Categories -->
   <h3 class="text-lg font-semibold border-b pb-2 mb-4">Categories</h3>
   <ul class="space-y-2">
     {
@@ -51,19 +37,4 @@ const topics = ["Marketing", "Web Development"];
       ))
     }
   </ul>
-  <!-- <h3 class="text-lg font-semibold border-b pb-2 mb-4">Topics</h3>
-  <ul class="space-y-2">
-    {
-      topics.map((category) => (
-        <li>
-          <a
-            href={`/${category.toLowerCase().replace(/\s+/g, "-")}/`}
-            class="text-[#1C1C1C] hover:underline hover:text-[#0093ff]"
-          >
-            {category}
-          </a>
-        </li>
-      ))
-    }
-  </ul> -->
 </aside>
