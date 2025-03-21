@@ -14,7 +14,6 @@ body {
     align-items: center;
 }
 
-
 @media (min-width: 768px) {
   .custom-flex-row {
     flex-direction: row;
@@ -31,4 +30,42 @@ body {
   background: -moz-linear-gradient(315deg, hsla(267, 83%, 91%, 1) 0%, hsla(22, 41%, 88%, 1) 100%);
   background: -webkit-linear-gradient(315deg, hsla(267, 83%, 91%, 1) 0%, hsla(22, 41%, 88%, 1) 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E6D5FB", endColorstr="#EDDDD4", GradientType=1 );
+}
+
+/* Article Styles */
+.articleStyle {
+  max-width: 800px;
+  margin-bottom: 6rem;
+  padding: 0;
+}
+.articleStyle h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem
+}
+.articleStyle h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem
+}
+.articleStyle h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem
+} 
+.articleStyle ul {
+  list-style-type: disc;  /* Ensures bullets appear */
+  padding-left: 1.25rem;  /* Indents bullets properly */
+  margin-bottom: 1rem; 
+}
+.articleStyle ol {
+  list-style-type: decimal;  /* Ensures bullets appear */
+  padding-left: 1.25rem;  /* Indents bullets properly */
+}
+.articleStyle p {
+    margin-bottom: 1rem; /* Adds spacing between paragraphs */
+}
+.articleStyle a {
+  color: #2563eb; /* Tailwind's blue-600 */
+  text-decoration: underline;
+}
+.articleStyle img {
+  margin-bottom: 2rem;
 }
