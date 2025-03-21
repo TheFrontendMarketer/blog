@@ -5,12 +5,13 @@ import { CldImage } from "astro-cloudinary";
 import Sidebar from "../components/Sidebar.astro";
 
 const blogPosts = (await getCollection("blog")).filter(
-  (post) => post.data.tags === "Marketing"
+  (post) => post.data.category === "Google Tag Manager"
 );
 ---
 
-<Layout title="Marketing">
-  <h1 class="text-4xl pt-4 pb-4">Marketing</h1>
+<Layout title="Google Tag Manager">
+  <h1 class="text-4xl pt-4 pb-4">Google Tag Manager</h1>
+  <p class="text-3xl flex justify-center">Coming Soon...</p>
   <div
     class="ml-4 mr-4 md:flex gap-12 justify-center leading-6 font-light mt-8 pb-18"
   >

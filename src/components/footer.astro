@@ -2,39 +2,21 @@
 const marItems = [
   {
     path: "/google-analytics",
-    label: "Marketing",
+    label: "Google Analytics",
   },
   {
     path: "/google-tag-manager",
     label: "Google Tag Manager",
   },
-  {
-    path: "/social-media",
-    label: "Social Media",
-  },
 ];
 const webItems = [
   {
-    path: "/html",
-    label: "HTML",
-  },
-  {
-    path: "/css",
-    label: "CSS",
+    path: "/html-and-css",
+    label: "HTML and CSS",
   },
   {
     path: "/frameworks",
     label: "Frameworks",
-  },
-];
-const lanItems = [
-  {
-    path: "/javascript",
-    label: "JavaScript",
-  },
-  {
-    path: "/python",
-    label: "Python",
   },
 ];
 ---
@@ -45,7 +27,7 @@ const lanItems = [
       class="ml-4 mr-4 pt-8 pb-8 flex flex-col text-left custom-flex-row md:justify-between"
     >
       <div id="marketing-footer">
-        <h2 class="text-l">Marketing</h2>
+        <h2 class="text-l mb-3">Marketing</h2>
         <ul class="text-xs pb-4">
           {
             marItems.map((item) => {
@@ -59,7 +41,7 @@ const lanItems = [
         </ul>
       </div>
       <div id="web-development-footer">
-        <h2 class="text-l">Web Development</h2>
+        <h2 class="text-l mb-3">Web Development</h2>
         <ul class="text-xs pb-4">
           {
             webItems.map((item) => {
@@ -72,36 +54,24 @@ const lanItems = [
           }
         </ul>
       </div>
-      <div id="languages-footer">
-        <h2 class="text-l">Languages</h2>
-        <ul class="text-xs pb-4">
-          {
-            lanItems.map((item) => {
-              return (
-                <li class="pb-1.5">
-                  <a href={item.path}>{item.label}</a>
-                </li>
-              );
-            })
-          }
-        </ul>
-      </div>
       <div id="about">
-        <h2 class="text-l">About</h2>
+        <h2 class="text-l mb-3">About</h2>
         <ul class="text-xs pb-4">
           <li><a href="/about">About</a></li>
         </ul>
       </div>
       <div id="follow">
-        <h2 class="text-l">Follow TFM</h2>
+        <h2 class="text-l mb-3">Follow TFM</h2>
         <ul class="text-xs pb-4">
           <li class="pb-1.5">
             <a href="https://bsky.app/profile/frontendmarketer.bsky.social"
-              >Bluesky</a>
+              >Bluesky</a
+            >
           </li>
           <li class="pb-1.5">
             <a href="https://www.instagram.com/thefrontendmarketer/"
-              >Instagram</a>
+              >Instagram</a
+            >
           </li>
         </ul>
       </div>

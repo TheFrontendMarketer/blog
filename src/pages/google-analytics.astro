@@ -5,12 +5,12 @@ import { CldImage } from "astro-cloudinary";
 import Sidebar from "../components/Sidebar.astro";
 
 const blogPosts = (await getCollection("blog")).filter(
-  (post) => post.data.tags === "Marketing"
+  (post) => post.data.category === "Google Analytics"
 );
 ---
 
 <Layout title="Marketing">
-  <h1 class="text-4xl pt-4 pb-4">Marketing</h1>
+  <h1 class="text-4xl pt-4 pb-4">Google Analytics</h1>
   <div
     class="ml-4 mr-4 md:flex gap-12 justify-center leading-6 font-light mt-8 pb-18"
   >
