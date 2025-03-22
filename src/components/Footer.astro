@@ -1,0 +1,82 @@
+---
+const marItems = [
+  {
+    path: "/google-analytics",
+    label: "Google Analytics",
+  },
+  {
+    path: "/google-tag-manager",
+    label: "Google Tag Manager",
+  },
+];
+const webItems = [
+  {
+    path: "/html-and-css",
+    label: "HTML and CSS",
+  },
+  {
+    path: "/frameworks",
+    label: "Frameworks",
+  },
+];
+---
+
+<div class="bg-[#2b2b2b] text-white">
+  <div class="siteContainer">
+    <div
+      class="ml-4 mr-4 pt-8 pb-8 flex flex-col text-left custom-flex-row md:justify-between"
+    >
+      <div id="marketing-footer">
+        <h2 class="text-l mb-3">Marketing</h2>
+        <ul class="text-xs pb-4">
+          {
+            marItems.map((item) => {
+              return (
+                <li class="pb-1.5">
+                  <a href={item.path}>{item.label}</a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+      <div id="web-development-footer">
+        <h2 class="text-l mb-3">Web Development</h2>
+        <ul class="text-xs pb-4">
+          {
+            webItems.map((item) => {
+              return (
+                <li class="pb-1.5">
+                  <a href={item.path}>{item.label}</a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+      <div id="about">
+        <h2 class="text-l mb-3">About</h2>
+        <ul class="text-xs pb-4">
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <div id="follow">
+        <h2 class="text-l mb-3">Follow TFM</h2>
+        <ul class="text-xs pb-4">
+          <li class="pb-1.5">
+            <a
+              href="https://bsky.app/profile/frontendmarketer.bsky.social"
+              target="_blank">Bluesky</a
+            >
+          </li>
+          <li class="pb-1.5">
+            <a
+              href="https://www.instagram.com/thefrontendmarketer/"
+              target="_blank">Instagram</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
