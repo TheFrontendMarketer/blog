@@ -7,7 +7,6 @@ description: >
 category: "Google Analytics"
 tags: "Marketing"
 image: "From_Zero_to_Insights_Dive_into_GA4_sen91a"
-layout: "src/layouts/page.astro"
 ---
 
 <div class="articleStyle custom-ul">
