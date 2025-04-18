@@ -3,15 +3,13 @@ title: "From Zero to Insights: Dive into GA4"
 slug: introducing-to-ga4
 date: 2025-03-21
 description: >
-  This is the description section for Introduction to GA4 blog.
+  Start using your data today with Google Analytics 4.
 category: "Google Analytics"
 tags: "Marketing"
 image: "From_Zero_to_Insights_Dive_into_GA4_sen91a"
 ---
 
 <div class="articleStyle custom-ul">
-
-![GA4 Dashboard](https://res.cloudinary.com/dz8qxptav/image/upload/v1742547012/From_Zero_to_Insights_Dive_into_GA4_sen91a.png)
 
 # From Zero to Insights: Dive into GA4
 
