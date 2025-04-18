@@ -11,6 +11,8 @@ image: "html_css_for_marketers_uqfklq"
 
 <div class="articleStyle custom-ul">
 
+![GA4 Dashboard](https://res.cloudinary.com/dz8qxptav/image/upload/v1744882555/html_css_for_marketers_uqfklq.png)
+
 # HTML and CSS for Marketers (How to Start Using Them Today)
 
 April 16, 2025

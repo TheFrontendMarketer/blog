@@ -11,6 +11,8 @@ image: "From_Zero_to_Insights_Dive_into_GA4_sen91a"
 
 <div class="articleStyle custom-ul">
 
+![GA4 Dashboard](https://res.cloudinary.com/dz8qxptav/image/upload/v1742547012/From_Zero_to_Insights_Dive_into_GA4_sen91a.png)
+
 # From Zero to Insights: Dive into GA4
 
 March 21, 2025
