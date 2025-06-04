@@ -61,7 +61,8 @@ Here’s a quick copy and paste of the above boilerplate code.
 
 Think of HTML as your website's personal storyteller, making sure every visitor and search engine bot gets the full picture.
 
-By using HTML tags to organize your content into clear sections like headings, lists, and paragraphs, you're not just making your site look good, you're creating a readable roadmap.  
+By using HTML tags to organize your content into clear sections like headings, lists, and paragraphs, you're not just making your site look good, you're creating a readable roadmap.
+
 Not only do HTML tags talk to search engines about your content's purpose, they also make your site a welcoming place for everyone, including those using screen readers. It's like giving your website a clear voice, so everyone gets the message.
 
 MDN Web Docs has a great page called [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) that you can use when you’re creating tags. Here are some of the most common tags you’ll run into when it comes to SEO.
