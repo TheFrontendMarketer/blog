@@ -25,7 +25,14 @@ import Layout from "../layouts/default.astro";
           Fill out the form below and let's talk about your project.
         </p>
       </div>
-      <form action="#" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20">
+      <form
+        name="contact"
+        action="/success"
+        method="POST"
+        netlify-honeypot="bot-field"
+        data-netlify="true"
+        class="mx-auto mt-16 max-w-xl sm:mt-20"
+      >
         <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label
