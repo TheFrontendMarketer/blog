@@ -4,7 +4,7 @@ slug: html-and-css-for-marketers
 date: 2025-04-16
 description: >
   How marketers can benefit from HTML and CSS.
-category: "HTML and CSS"
+category: "Web Development"
 tags: "Web Development"
 image: "html_css_for_marketers_uqfklq"
 ---

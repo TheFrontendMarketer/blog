@@ -5,7 +5,13 @@ const { description } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-  <section class="ml-4 mr-4">
+  <section class="ml-4 mr-4 mt-8">
     <slot />
   </section>
 </Layout>
+
+<style>
+  body {
+    background: #f5f5f5;
+  }
+</style>

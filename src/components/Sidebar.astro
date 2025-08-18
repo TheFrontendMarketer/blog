@@ -4,13 +4,8 @@ import { getCollection } from "astro:content";
 const blogPosts = (await getCollection("blog")).sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
-const categories = [
-  "Google Analytics",
-  "Google Tag Manager",
-  "HTML and CSS",
-  "Frameworks",
-];
-const topics = ["Marketing", "Web Development"];
+const categories = ["Web Development", "Marketing"];
+const topics = ["Web Development", "Marketing"];
 ---
 
 <aside
