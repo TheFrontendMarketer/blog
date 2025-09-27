@@ -4,8 +4,15 @@ const { title } = Astro.props;
 const { description } = Astro.props;
 ---
 
-<Layout title={title} description={description} bodyClass="blog-page">
-  <section class="ml-4 mr-4 mt-8">
-    <slot />
-  </section>
+<Layout title={title} description={description}>
+  <!-- Break out of siteContainer constraint -->
+  <div
+    class="relative left-1/2 right-1/2 w-screen -ml-[50vw] -mr-[50vw] bg-[#f5f5f5] pt-8"
+  >
+    <section class="siteContainer">
+      <div class="ml-4 mr-4">
+        <slot />
+      </div>
+    </section>
+  </div>
 </Layout>
