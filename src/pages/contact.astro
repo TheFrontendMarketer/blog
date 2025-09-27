@@ -30,9 +30,18 @@ import Layout from "../layouts/default.astro";
         action="/success"
         method="POST"
         netlify-honeypot="bot-field"
+        data-netlify-recaptcha="true"
         data-netlify="true"
         class="mx-auto mt-16 max-w-xl sm:mt-20"
       >
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="sr-only" aria-hidden="true">
+          <label
+            >Don’t fill this out if you’re human: <input
+              name="bot-field"
+            /></label
+          >
+        </p>
         <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label
@@ -45,6 +54,8 @@ import Layout from "../layouts/default.astro";
                 type="text"
                 name="first-name"
                 autocomplete="given-name"
+                pattern="[A-Za-z][A-Za-z '\-]{1,39}"
+                title="Use letters, spaces, apostrophes, or hyphens."
                 class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 required
               />
@@ -61,6 +72,8 @@ import Layout from "../layouts/default.astro";
                 type="text"
                 name="last-name"
                 autocomplete="family-name"
+                pattern="[A-Za-z][A-Za-z '\-]{1,39}"
+                title="Use letters, spaces, apostrophes, or hyphens."
                 class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 required
               />
@@ -77,6 +90,8 @@ import Layout from "../layouts/default.astro";
                 type="text"
                 name="company"
                 autocomplete="organization"
+                pattern="[A-Za-z0-9][A-Za-z0-9 &'.\-]{1,79}"
+                title="Letters, numbers, spaces and & ' - ."
                 class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 required
               />
@@ -92,6 +107,7 @@ import Layout from "../layouts/default.astro";
                 type="email"
                 name="email"
                 autocomplete="email"
+                inputmode="email"
                 class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 required
               />
@@ -109,8 +125,10 @@ import Layout from "../layouts/default.astro";
               >
                 <input
                   id="phone-number"
-                  type="text"
+                  type="tel"
                   name="phone-number"
+                  inputmode="tel"
+                  pattern="^\+?[0-9 ()\-\.]{7,20}$"
                   class="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
                 />
               </div>
@@ -126,11 +144,15 @@ import Layout from "../layouts/default.astro";
                 id="message"
                 name="message"
                 rows="4"
+                minlength="20"
+                maxlength="1500"
+                required
                 class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
               ></textarea>
             </div>
           </div>
         </div>
+        <div data-netlify-recaptcha="true"></div>
         <div class="mt-10">
           <button
             type="submit"
