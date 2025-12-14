@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/page.astro";
+import { categoryToSlug } from "../constants";
 
 export const prerender = true;
 
@@ -8,8 +9,11 @@ export async function getStaticPaths() {
   const blogPosts = await getCollection("blog");
 
   return blogPosts.map((post) => {
+    const categorySlug = categoryToSlug(post.data.category);
+    const fullSlug = `${categorySlug}/${post.slug}`;
+    
     return {
-      params: { slug: post.slug },
+      params: { slug: fullSlug },
       props: { post },
     };
   });

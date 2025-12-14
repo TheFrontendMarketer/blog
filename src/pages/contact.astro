@@ -3,25 +3,22 @@ import Layout from "../layouts/default.astro";
 ---
 
 <Layout>
-  <section class="ml-4 mr-4 md:flex gap-12 justify-center leading-6 font-light">
-    <div class="isolate dark:bg-[#100f15] px-6 py-24 sm:py-32 lg:px-8">
+  <section
+    class="md:flex gap-12 justify-center leading-6 font-light relative left-1/2 right-1/2 w-screen -ml-[50vw] -mr-[50vw] bg-[#f5f5f5]"
+  >
+    <div class="isolate px-6 py-24 sm:py-32 lg:px-8">
       <div
         aria-hidden="true"
         class="pointer-events-none absolute inset-x-0 -top-40 -z-1 transform-gpu overflow-hidden blur-3xl sm:-top-80"
       >
-        <div
-          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-          class="relative left-1/2 -z-10 aspect-1155/678 w-144.5 max-w-none -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-40rem)] sm:w-288.75"
-        >
-        </div>
       </div>
       <div class="mx-auto max-w-2xl text-center">
         <h2
-          class="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl"
+          class="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl"
         >
           Get in touch
         </h2>
-        <p class="mt-2 text-lg/8 text-gray-400">
+        <p class="mt-2 text-lg/8 text-gray-600">
           Fill out the form below and let's talk about your project.
         </p>
       </div>
@@ -46,7 +43,8 @@ import Layout from "../layouts/default.astro";
           <div>
             <label
               for="first-name"
-              class="block text-sm/6 font-semibold text-white">First name</label
+              class="block text-sm/6 font-semibold text-gray-900"
+              >First name</label
             >
             <div class="mt-2.5">
               <input
@@ -56,7 +54,7 @@ import Layout from "../layouts/default.astro";
                 autocomplete="given-name"
                 pattern="[A-Za-z][A-Za-z '\-]{1,39}"
                 title="Use letters, spaces, apostrophes, or hyphens."
-                class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 required
               />
             </div>
@@ -64,7 +62,8 @@ import Layout from "../layouts/default.astro";
           <div>
             <label
               for="last-name"
-              class="block text-sm/6 font-semibold text-white">Last name</label
+              class="block text-sm/6 font-semibold text-gray-900"
+              >Last name</label
             >
             <div class="mt-2.5">
               <input
@@ -74,7 +73,7 @@ import Layout from "../layouts/default.astro";
                 autocomplete="family-name"
                 pattern="[A-Za-z][A-Za-z '\-]{1,39}"
                 title="Use letters, spaces, apostrophes, or hyphens."
-                class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 required
               />
             </div>
@@ -82,7 +81,7 @@ import Layout from "../layouts/default.astro";
           <div class="sm:col-span-2">
             <label
               for="company"
-              class="block text-sm/6 font-semibold text-white">Company</label
+              class="block text-sm/6 font-semibold text-gray-900">Company</label
             >
             <div class="mt-2.5">
               <input
@@ -92,14 +91,15 @@ import Layout from "../layouts/default.astro";
                 autocomplete="organization"
                 pattern="[A-Za-z0-9][A-Za-z0-9 &'.\-]{1,79}"
                 title="Letters, numbers, spaces and & ' - ."
-                class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 required
               />
             </div>
           </div>
           <div class="sm:col-span-2">
-            <label for="email" class="block text-sm/6 font-semibold text-white"
-              >Email</label
+            <label
+              for="email"
+              class="block text-sm/6 font-semibold text-gray-900">Email</label
             >
             <div class="mt-2.5">
               <input
@@ -108,7 +108,7 @@ import Layout from "../layouts/default.astro";
                 name="email"
                 autocomplete="email"
                 inputmode="email"
-                class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                 required
               />
             </div>
@@ -116,12 +116,12 @@ import Layout from "../layouts/default.astro";
           <div class="sm:col-span-2">
             <label
               for="phone-number"
-              class="block text-sm/6 font-semibold text-white"
+              class="block text-sm/6 font-semibold text-gray-900"
               >Phone number</label
             >
             <div class="mt-2.5">
               <div
-                class="flex rounded-md bg-white/5 outline-1 -outline-offset-1 outline-white/10 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500"
+                class="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500"
               >
                 <input
                   id="phone-number"
@@ -129,7 +129,7 @@ import Layout from "../layouts/default.astro";
                   name="phone-number"
                   inputmode="tel"
                   pattern="^\+?[0-9 ()\-\.]{7,20}$"
-                  class="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
+                  class="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
                 />
               </div>
             </div>
@@ -137,7 +137,7 @@ import Layout from "../layouts/default.astro";
           <div class="sm:col-span-2">
             <label
               for="message"
-              class="block text-sm/6 font-semibold text-white">Message</label
+              class="block text-sm/6 font-semibold text-gray-900">Message</label
             >
             <div class="mt-2.5">
               <textarea
@@ -147,7 +147,7 @@ import Layout from "../layouts/default.astro";
                 minlength="20"
                 maxlength="1500"
                 required
-                class="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+                class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
               ></textarea>
             </div>
           </div>

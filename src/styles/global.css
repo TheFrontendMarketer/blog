@@ -45,7 +45,9 @@ body {
 
 /* About Me banner */
 .about-me-banner {
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   height: 40vh;
   background: hsla(267, 83%, 91%, 1);
   background: linear-gradient(315deg, hsla(267, 83%, 91%, 1) 0%, hsla(22, 41%, 88%, 1) 100%);

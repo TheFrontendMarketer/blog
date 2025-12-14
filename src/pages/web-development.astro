@@ -3,6 +3,7 @@ import Layout from "../layouts/page.astro";
 import { getCollection } from "astro:content";
 import { CldImage } from "astro-cloudinary";
 import Sidebar from "../components/Sidebar.astro";
+import { getPostUrl } from "../constants";
 
 const blogPosts = (await getCollection("blog")).filter(
   (post) => post.data.tags === "Web Development"
@@ -21,7 +22,7 @@ const blogPosts = (await getCollection("blog")).filter(
             <div class="post max-w-[700px] pt-4 pb-4 border-b border-gray-300">
               {post.data.image && (
                 <a
-                  href={`/${post.slug}`}
+                  href={getPostUrl(post)}
                   aria-label={`Read ${post.data.title}`}
                 >
                   <CldImage
@@ -44,14 +45,14 @@ const blogPosts = (await getCollection("blog")).filter(
               <h2>
                 <a
                   class="text-[#1C1C1C] font-bold hover:underline hover:text-[#0093ff]"
-                  href={`/${post.slug}`}
+                  href={getPostUrl(post)}
                 >
                   {post.data.title}
                 </a>
               </h2>
 
               <p>{post.data.description}</p>
-              <a href={`/${post.slug}`} class="big-link" />
+              <a href={getPostUrl(post)} class="big-link" />
 
               <time class="text-xs" datetime={post.data.date.toISOString()}>
                 {new Date(post.data.date).toLocaleDateString("en-US", {
