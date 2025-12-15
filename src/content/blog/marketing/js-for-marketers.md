@@ -33,6 +33,7 @@ Google Tag Manager (GTM) is a free tool that allows you to manage and deploy tag
 6. Extracting URL Parameters for Campaign Attribution
 
 <br>
+<br>
 
 ![gtm dashboard](https://res.cloudinary.com/dz8qxptav/image/upload/v1765708573/js_gtm_dashboard_1_geuub3.png)
 
