@@ -3,7 +3,7 @@ title: "JavaScript for Marketers: Supercharge Your GTM"
 slug: js-for-marketers
 date: 2025-12-14
 description: >
-  Start using your data today with Google Analytics 4.
+  Ideas for how to use JavaScript as a marketer.
 category: "Marketing"
 tags: "Marketing"
 image: "https://res.cloudinary.com/dz8qxptav/image/upload/v1765707540/js_for_marketers_gtm_4_h6l6ed.png"
@@ -11,7 +11,7 @@ image: "https://res.cloudinary.com/dz8qxptav/image/upload/v1765707540/js_for_mar
 
 <div class="articleStyle custom-ul">
 
-![GA4 Dashboard](https://res.cloudinary.com/dz8qxptav/image/upload/v1765707540/js_for_marketers_gtm_4_h6l6ed.png)
+![hero image](https://res.cloudinary.com/dz8qxptav/image/upload/v1765707540/js_for_marketers_gtm_4_h6l6ed.png)
 
 # JavaScript for Marketers: Supercharge Your GTM
 
