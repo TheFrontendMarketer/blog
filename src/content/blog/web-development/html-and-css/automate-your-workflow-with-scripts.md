@@ -25,10 +25,10 @@ I noticed my website creation process was repetitive and in coding when somethin
 
 I use an Astro template that I created and saved to GitHub which I use for all my new static website projects. The script I built automatically clones the repo, prompts the user for a new project name, and saves it to a specific folder on my desktop.
 
-1. Still D.R.Y.
-2. ZSH State of Mind
-3. Enter the Script
-4. Final Thoughts
+1. [Still D.R.Y.](#still-dr-y)
+2. [ZSH State of Mind](#zsh-state-of-mind)
+3. [Enter the Script](#enter-the-script)
+4. [Final Thoughts](#final-thoughts)
 
 <br>
 <br>
