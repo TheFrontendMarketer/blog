@@ -11,7 +11,7 @@ export async function getStaticPaths() {
   return blogPosts.map((post) => {
     const categorySlug = categoryToSlug(post.data.category);
     const fullSlug = `${categorySlug}/${post.slug}`;
-    
+
     return {
       params: { slug: fullSlug },
       props: { post },

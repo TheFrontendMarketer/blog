@@ -5,9 +5,11 @@ import { CldImage } from "astro-cloudinary";
 import Sidebar from "../components/Sidebar.astro";
 import { getPostUrl } from "../constants";
 
-const blogPosts = (await getCollection("blog")).filter(
-  (post) => post.data.tags === "Marketing"
-);
+const blogPosts = (await getCollection("blog"))
+  .filter((post) => post.data.tags === "Marketing")
+  .sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+  );
 ---
 
 <Layout title="Marketing">

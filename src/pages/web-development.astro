@@ -5,9 +5,11 @@ import { CldImage } from "astro-cloudinary";
 import Sidebar from "../components/Sidebar.astro";
 import { getPostUrl } from "../constants";
 
-const blogPosts = (await getCollection("blog")).filter(
-  (post) => post.data.tags === "Web Development"
-);
+const blogPosts = (await getCollection("blog"))
+  .filter((post) => post.data.tags === "Web Development")
+  .sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+  );
 ---
 
 <Layout title="Web Development">
@@ -36,7 +38,7 @@ const blogPosts = (await getCollection("blog")).filter(
               )}
               <p class="mt-4">
                 <a
-                  class="text-[#808080] text-sm"
+                  class="text-[#AC0C19] text-sm"
                   href={`/${post.data.category.toLowerCase().replace(/\s+/g, "-")}/`}
                 >
                   {post.data.category}
