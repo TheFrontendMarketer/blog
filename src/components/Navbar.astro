@@ -17,12 +17,12 @@ const navItems = [
 
 <nav class="dark:bg-[#100f15] text-white">
   <div class="mx-auto max-w-[1240px]">
-    <div class="relative flex h-16 items-center justify-between">
+    <div class="relative flex h-20 items-center justify-between">
       <div class="absolute inset-y-0 right-0 flex items-center sm:hidden">
         <!-- Mobile menu button-->
         <button
           type="button"
-          class="mobile-button md:hidden relative inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset"
+          class="mobile-button md:hidden relative inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-gray-700 hover:text-white focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-inset"
           aria-controls="mobile-menu"
           aria-expanded="false"
         >
@@ -77,14 +77,14 @@ const navItems = [
             src="/src/assets/elevate_light.png"
             alt="Your Company"
           /> -->
-          <a href="/" class="font-bold md:">The Frontend Marketer</a>
-          <!-- <a href="/"
+          <!-- <a href="/" class="font-bold md:">The Frontend Marketer</a> -->
+          <a href="/"
             ><img
               src="/tfm-full-logo.png"
               alt="The Frontend Marketer"
-              class="h-12 w-auto"
+              class="h-16 w-auto"
             /></a
-          > -->
+          >
         </div>
         <div class="hidden sm:ml-6 sm:flex ml-auto items-center">
           <ul class="flex space-x-4">
@@ -110,7 +110,7 @@ const navItems = [
         navItems.map((item) => (
           <a
             href={item.path}
-            class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-700 hover:text-white"
+            class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white"
           >
             {item.label}
           </a>
