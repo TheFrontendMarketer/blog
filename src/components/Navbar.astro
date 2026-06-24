@@ -34,7 +34,7 @@ const navItems = [
                 Menu open: "hidden", Menu closed: "block"
               -->
           <svg
-            class="block size-6"
+            class="menu-icon-open block size-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
@@ -53,7 +53,7 @@ const navItems = [
                 Menu open: "block", Menu closed: "hidden"
               -->
           <svg
-            class="hidden size-6"
+            class="menu-icon-close hidden size-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
@@ -123,8 +123,21 @@ const navItems = [
 <script>
   const mobileButton = document.querySelector(".mobile-button");
   const mobileMenu = document.querySelector(".mobile-menu");
+  const menuIconOpen = document.querySelector(".menu-icon-open");
+  const menuIconClose = document.querySelector(".menu-icon-close");
+  const srOnly = mobileButton?.querySelector(".sr-only");
 
   mobileButton?.addEventListener("click", () => {
-    mobileMenu?.classList.toggle("hidden");
+    const isOpen = mobileMenu?.classList.toggle("hidden") === false;
+
+    menuIconOpen?.classList.toggle("hidden", isOpen);
+    menuIconOpen?.classList.toggle("block", !isOpen);
+    menuIconClose?.classList.toggle("hidden", !isOpen);
+    menuIconClose?.classList.toggle("block", isOpen);
+
+    mobileButton.setAttribute("aria-expanded", String(isOpen));
+    if (srOnly) {
+      srOnly.textContent = isOpen ? "Close main menu" : "Open main menu";
+    }
   });
 </script>
