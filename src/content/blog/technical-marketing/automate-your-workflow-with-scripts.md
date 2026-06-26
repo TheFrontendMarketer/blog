@@ -4,8 +4,8 @@ slug: automate-your-workflow-with-scripts
 date: 2026-01-16
 description: >
   This is how I automated my web development workflow with scripts.
-category: "Web Development"
-tags: "Web Development"
+category: "Technical Marketing"
+tags: "Technical Marketing"
 image: "automate_your_workflow_geozfu"
 ---
 

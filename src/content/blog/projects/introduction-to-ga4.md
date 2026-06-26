@@ -4,8 +4,8 @@ slug: introducing-to-ga4
 date: 2025-03-21
 description: >
   Start using your data today with Google Analytics 4.
-category: "Marketing"
-tags: "Marketing"
+category: "Projects"
+tags: "Projects"
 image: "From_Zero_to_Insights_Dive_into_GA4_sen91a"
 ---
 

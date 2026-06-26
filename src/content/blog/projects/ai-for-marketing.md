@@ -4,8 +4,8 @@ slug: ai-for-marketing
 date: 2025-12-16
 description: >
   How I'm mixing AI into my marketing workflow.
-category: "Marketing"
-tags: "Marketing"
+category: "Projects"
+tags: "Projects"
 image: "https://res.cloudinary.com/dz8qxptav/image/upload/v1765894479/hero_wukhzd.png"
 ---
 

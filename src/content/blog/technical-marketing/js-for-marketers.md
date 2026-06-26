@@ -4,8 +4,8 @@ slug: js-for-marketers
 date: 2025-12-14
 description: >
   Ideas for how to use JavaScript as a marketer.
-category: "Marketing"
-tags: "Marketing"
+category: "Technical Marketing"
+tags: "Technical Marketing"
 image: "https://res.cloudinary.com/dz8qxptav/image/upload/v1765707540/js_for_marketers_gtm_4_h6l6ed.png"
 ---
 
